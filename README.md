@@ -35,7 +35,6 @@
 ├── config.py 
 ├── flaskapp 
 │   ├── __init__.py 
-│   ├── context_processors.py
 │   ├── dashboard
 │   │   ├── apps 
 │   │   │   ├── dash_uygulamasi_1
@@ -48,16 +47,21 @@
 │   │   └── utilities
 │   │       ├── style.py
 │   │       └── tables.py
-│   ├── routes.py 
+│   ├── app.py 
+│   ├── db.py 
+│   ├── login.py 
+│   ├── template_filters.py 
+│   ├── context_processors.py 
 │   ├── static 
+│   ├── admin
+│   │    ├── app.py
 │   └── templates
-│       ├── dashboards
-│       │   ├── dashboard_basic.jinja2
-│       │   └── dashboard_layout.jinja2
+│       │── dashboard_basic.jinja2
 │       ├── index.jinja2
-│       └── utilities
-│           ├── layout.jinja2
-│           └── navbar.jinja2
+│       ├── layout.jinja2
+│       └── admin
+│           ├── index.jinja2
+│           └── user_detail.jinja2
 ├── req.txt 
 └── wsgi.py
 └── fetch_all.py
