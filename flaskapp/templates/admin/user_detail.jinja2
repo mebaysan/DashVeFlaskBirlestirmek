@@ -1,0 +1,43 @@
+{% extends 'layout.jinja2' %}
+
+{% block content %}
+    
+            <div>
+                <form method="post" action="/admin/user/detail/{{ user.id }}">
+                    <div>
+                        <label>Kullanıcı Adı</label>
+                        <input type="text" id="adminUsername" name="username"
+                               value="{{ user.username }}">
+                    </div>
+                    <div>
+                        <label>Parola</label>
+                        <input type="password" id="adminPassword" name="password">
+                    </div>
+                    <div>
+                        <label>Admin mi?</label>
+                        <select id="adminAdmin" name="is_admin">
+                            {% if user.is_admin %}
+                                <option value=True selected>Evet</option>
+                                <option value=False>Hayır</option>
+                            {% else %}
+                                <option value=False selected>Hayır</option>
+                                <option value=True>Evet</option>
+                            {% endif %}
+
+                        </select>
+                    </div>
+                    <div>
+                        <label>Roller</label>
+                        <select id="userRoles" name="roles" multiple>
+                            {% for role in roles %}
+                                <option value="{{ role.id }}" {% if role in user.roles %} selected {% endif %}>{{ role.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button type="submit">Kullanıcı Güncelle
+                    </button>
+                </form>
+            </div>
+        
+
+{% endblock %}

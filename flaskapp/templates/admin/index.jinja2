@@ -1,0 +1,100 @@
+{% extends 'layout.jinja2' %}
+{% block content %}
+<br>
+            <div>
+                <form method="post" action="/admin/user/add">
+                    <div>
+                        <label>Kullanıcı Adı</label>
+                        <input type="text" id="adminUsername" name="username">
+                    </div>
+                    <div>
+                        <label>Parola</label>
+                        <input type="password" id="adminPassword" name="password">
+                    </div>
+                    <div>
+                        <label for="adminAdmin">Admin mi?</label>
+                        <select id="adminAdmin" name="is_admin">
+                            <option value=False selected>Hayır</option>
+                            <option value=True>Evet</option>
+                        </select>
+                    </div>
+                    <button type="submit">Kullanıcı Ekle</button>
+                </form>
+            </div>
+            <br>
+            <div>
+                <form method="post" action="/admin/role/add">
+                    <div>
+                        <label>Rol Adı</label>
+                        <input type="text" id="adminRoleName" name="role_name">
+                        <small><b>Rol adları dash CONFIG sabitleri içerisindeki APP_URL değişkenleri ile aynıolmalıdır</b></small>
+                    </div>
+                    <button type="submit">Rol Ekle</button>
+                </form>
+            </div>
+        <br><br>
+       
+            <div>
+                <h4>Kullanıcılar</h4>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Kullanıcı Adı</th>
+                        <th>Admin mi?</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ user.id }}</td>
+                            <td>{{ user.username }}</td>
+                            <td>
+                                {% if user.is_admin %}
+                                    Evet
+                                {% else %}
+                                    Hayır
+                                {% endif %}
+                            </td>
+                            <td><a href="/admin/user/detail/{{ user.id }}">Detay</a></td>
+                            <td>
+                                <form action="/admin/user/delete/{{ user.id }}" method="post">
+                                    <button type="submit">Sil</button>
+                                </form>
+
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <h4>Roller</h4>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Rol Adı</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for role in roles %}
+                        <tr>
+                            <td>{{ role.id }}</td>
+                            <td>{{ role.name }}</td>
+                            <td>
+                                <form action="/admin/role/delete/{{ role.id }}" method="post">
+                                    <button type="submit">Sil</button>
+                                </form>
+
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+{% endblock %}
