@@ -1,5 +1,5 @@
 # Dash ve Flask Birleştirmek
-
+[PDF Linki](https://drive.google.com/file/d/1f7uI3jaEqwasSfehC3QSdId5db29X6cs/view?usp=sharing)
 ## Kullanılan Teknolojiler (Requirements)
 - Flask
 - Dash & Dash Bootstrap Components
