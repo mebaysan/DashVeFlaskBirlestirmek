@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>
+      {% if title %} Dash & Flask | {{ title }} {% else %} Dash & FLask {% endif
+      %}
+    </title>
+    {% block custom_css %} {% endblock %}
+    <style>
+      .my-navbar {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      .my-navbar li{
+        display: inline;
+      }
+    </style>
+  </head>
+  <body>
+<ul class="my-navbar">
+<li><a href="/">Anasayfa</a></li>
+{% if current_user.is_anonymous %}
+<li><a href="/login">Giriş</a></li>
+{% else %}
+{% if current_user.is_admin %}
+<li><a href="/admin">Admin İşlemleri</a></li>
+{% endif %}
+{% for dashboard in get_dashboards %}
+<a href="/dashboard/{{ dashboard['APP_URL'] }}">{{ dashboard['APP_NAME'] }}</a>
+{% endfor %}
+<li><a href="/logout">Çıkış</a></li>
+{% endif %}
+</ul>
+    {% block content %} {% endblock %} {% block custom_js %} {% endblock %}
+  </body>
+</html>

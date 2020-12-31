@@ -1,0 +1,10 @@
+{% extends 'layout.jinja2' %}
+{% block content %}
+<div><form id="loginForm" method="post" action="/login">
+<div><label>Kullanıcı Adı</label><input type="text" id="loginUsername" name="username" required></div>
+<div><label>Parola</label><input type="password" id="loginPassword" name="password" required></div>
+
+<button type="submit">Giriş</button>
+</form></div>
+
+{% endblock %}
