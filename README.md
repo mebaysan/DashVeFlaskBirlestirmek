@@ -15,14 +15,14 @@
 ### Structure
 - Proje **wsgi.py** dosyasından ayağa kalkar
 - Kök dizindeki **fetch_all.py** dosyası sayesinde (sisteme eklenmiş cronjob bu dosyayı çalıştırır) tüm dash uygulama dizinlerinin altındaki fetch_data.py dosyası çalıştırılır.
-    - Bu sayede her gece 00 00'da veri ambarından güncel veriler çekilir ve 03 00'da python projemiz yeniden başlatılır ve güncel veriler dahsboard'lara dahil edilmiş olur.
+    - Bu sayede her gece 00 00'da veri ambarından güncel veriler çekilir ve 03 00'da python projemiz yeniden başlatılır ve güncel veriler dashboard'lara dahil edilmiş olur.
 - **__init__.py** ana FLASK uygulamamızı oluşturur
 - **app.py** ana FLASK uygulamamıza ait bileşenleri barındırır (blueprints, routes, handlers vb)
 - Ana dizindeki **myconfig.py** dosyası Flask uygulamasına ait ayarları tutmaktadır (static path, development mode vb.)
 - Proje ile ilgili bütün fonksiyonlar, modüller, paketler vb **flaskapp** klasörü altında toplanmıştır
 - **flaskapp/dashboard** klasörü altından DASH uygulamalarına erişebiliriz
 - **flaskapp/dashboard/utilites/database_config.py** dosyası ambara bağlanılacak olan pymssql config bilgilerini içerir
-- **flaskapp/dahsboard/utilities** klasörü altında işimizi kolaylaştıracak fonksiyonlar bulunmaktadır, varsa kendi yazdığımız componentler vb, veya dash uygulamalarının uyumluluğu için CSS sabitleri
+- **flaskapp/dashboard/utilities** klasörü altında işimizi kolaylaştıracak fonksiyonlar bulunmaktadır, varsa kendi yazdığımız componentler vb, veya dash uygulamalarının uyumluluğu için CSS sabitleri
 - **flaskapp/static** klasörü altında FLASK uygulamasına ait static dosyalar (bootstrap, jquery vb) tutulmaktadır
 - **flaskapp/templates** klasörü altında FLASK uygulamasına ait route'ların döndürdüğü template (jinja2, html vb) dosyaları tutulmaktadır
 - **flaskapp/dashboard/apps** klasörü altında **her bir** dash uygulamasına ait klasörler bulunmaktadır
@@ -113,14 +113,14 @@ CONFIG = {
 ### Structure
 - Project stands up from **wsgi.py** file
 - Thanks to the **fetch_all.py** file in the root directory (cronjob attached to the system runs this file) fetch_data.py under all dash application directories is run.
-    - In this way, updated data is taken from the data warehouse every night at 00:00 and our python project is restarted at 03:00 and the current data is included in the dahsboards.
+    - In this way, updated data is taken from the data warehouse every night at 00:00 and our python project is restarted at 03:00 and the current data is included in the dashboards.
 - **__init.py__** creates our main FLASK application
 - **app.py** contains components of our main FLASK application (blueprints, routes, handlers etc)
 - The **myconfig.py** file in the main directory holds the settings of the Flask application (static path, development mode etc.).
 - All functions, modules, packages etc. related to the project are collected under the **flaskapp** folder.
 - We can access DASH applications under the **flaskapp/dashboard** folder.
 - **flaskapp/dashboard/utilites/database_config.py** file contains pymssql config information to connect to the warehouse
-- There are functions to make our work easier under the **flaskapp/dahsboard/utilities** folder, if any, components etc.
+- There are functions to make our work easier under the **flaskapp/dashboard/utilities** folder, if any, components etc.
 - Under the **flaskapp/static** folder, static files (bootstrap, jquery etc.) of the FLASK application are kept.
 - Under the **flaskapp/templates** folder, the template files (jinja2, html etc.) returned by the routes belonging to the FLASK application are kept.
 - Under the **flaskapp/dashboard/apps** folder, there are folders **for each dash** application.
